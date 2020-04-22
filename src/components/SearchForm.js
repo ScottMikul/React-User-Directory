@@ -1,25 +1,16 @@
 import React from "react";
 
-class TableHead extends React.Component{
+class SearchForm extends React.Component{
 
 
- render(){
-     return(
-         <thead>
-             <tr>
-             <th scope="col" onClick={() => {this.props.updateColSort(0)}}>#</th>
-             <th scope="col" >Profile</th>
-             <th scope="col" onClick={() => {this.props.updateColSort(2)}}>First</th>
-             <th scope="col" onClick={() => {this.props.updateColSort(3)}}>Last</th>
-             <th scope="col" onClick={() => {this.props.updateColSort(4)}}>Email</th>
-             <th scope="col" onClick={() => {this.props.updateColSort(5)}}>Phone</th>
-             </tr>
-          </thead>
-        )
- }
+    render(){
+        return(
+            <input type="text" onChange={(event)=>{this.props.updateSearch(event.target.value)}}></input>
+            )
+    }
 
 
 }
 
 
-export default TableHead;
+export default SearchForm;

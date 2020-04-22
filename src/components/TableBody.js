@@ -25,7 +25,12 @@ class TableBody extends React.Component{
     }
 
     render(){
-        const sortedRows = this.state.Employees.sort((a,b)=>{
+        let filteredRows = this.state.Employees;
+        let Search = this.props.search;
+        if(this.props.search!==""){
+            filteredRows = this.state.Employees.filter(employee => employee.join(" ").includes(Search))
+        }
+        const sortedRows = filteredRows.sort((a,b)=>{
             if(this.props.filterType==="asc"){
                 if(a[this.props.filterCol]>b[this.props.filterCol]){
                     return 1;
@@ -52,6 +57,7 @@ class TableBody extends React.Component{
         })
 
 
+
        const rows =  sortedRows.map((employee) =>{
            return (
                <tr>
@@ -69,7 +75,6 @@ class TableBody extends React.Component{
         
 
         <tbody>
-            <div>{}</div>
             {rows}
         </tbody>
         )

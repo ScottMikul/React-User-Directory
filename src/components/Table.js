@@ -1,6 +1,7 @@
 import React from "react";
 import TableHead from "./TableHead"
 import TableBody from "./TableBody"
+import SearchForm from "./SearchForm";
        
 
 class Table extends React.Component{
@@ -25,7 +26,6 @@ class Table extends React.Component{
     }
 
      updateColSort(col){
-         console.log("col is "+col);
         if(this.state.filterCol ===col){
             if(this.state.filterType==="asc"){
                 this.setState({ filterType:"desc" })
@@ -41,14 +41,17 @@ class Table extends React.Component{
 
     render(){
         return ( 
-            <table className="table table-striped">
-         
-             <TableHead updateColSort={this.updateColSort} />
-             <TableBody search={this.state.search} 
-                filterCol={this.state.filterCol} 
-                filterType={this.state.filterType} />
-         
-             </table>
+            <div>
+                <SearchForm updateSearch={this.updateSearch} />
+                <table className="table table-striped">
+            
+                <TableHead updateColSort={this.updateColSort} />
+                <TableBody search={this.state.search} 
+                    filterCol={this.state.filterCol} 
+                    filterType={this.state.filterType} />
+            
+                </table>
+             </div>
             )
     }
 
