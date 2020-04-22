@@ -12,7 +12,8 @@ class TableBody extends React.Component{
     
     componentDidMount(){
         API.getEmployees()
-        .then(res=> this.setState({Employees:res.data.results.map((employee,index) =>
+        .then(res=> this.setState(
+            {Employees:res.data.results.map((employee,index) =>
              [  index,
                  employee.picture.medium,
                 employee.name.first ,
@@ -24,12 +25,6 @@ class TableBody extends React.Component{
     }
 
     render(){
-    //   {this.props.filterType}
-    //     {this.props.filterCol}
-    //     {this.props.search}
-        //filter by the search term on the selected columns
-        
-        //sort by the selected column
         const sortedRows = this.state.Employees.sort((a,b)=>{
             if(this.props.filterType==="asc"){
                 if(a[this.props.filterCol]>b[this.props.filterCol]){

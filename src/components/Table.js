@@ -11,18 +11,19 @@ class Table extends React.Component{
         // Bind the this context to the handler function
         this.updateColSort = this.updateColSort.bind(this);
 
-        // Set some state
+        this.updateSearch = this.updateSearch.bind(this);
+
+
         this.state = {
             filterType:"asc",
             filterCol:"0",
             search:"",
         }
     }
+    updateSearch(newSearch){
+        this.setState({search:newSearch});
+    }
 
-
-    componentDidMount() {
-        console.log("the state is set on mount? : "+ this.state.filterType);
-      }
      updateColSort(col){
          console.log("col is "+col);
         if(this.state.filterCol ===col){

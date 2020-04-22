@@ -2,9 +2,6 @@
 
    class TableHead extends React.Component{
 
-    state = {
-        filterCol: "we are looking at the damn tableheader state! UGHHHHHHHHHHHHHHHH"
-    }
     render(){
         return(
             <thead>
