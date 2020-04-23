@@ -41,11 +41,16 @@ class Table extends React.Component{
 
     render(){
         return ( 
-            <div>
-                <SearchForm updateSearch={this.updateSearch} />
+            <div className = "container">
+                <div className="d-flex justify-content-center mt-3 mb-3">
+                    <SearchForm updateSearch={this.updateSearch} />
+                </div>
+
                 <table className="table table-striped">
             
-                <TableHead updateColSort={this.updateColSort} />
+                <TableHead updateColSort={this.updateColSort} 
+                filterCol={this.state.filterCol} 
+                filterType={this.state.filterType}/>
                 <TableBody search={this.state.search} 
                     filterCol={this.state.filterCol} 
                     filterType={this.state.filterType} />

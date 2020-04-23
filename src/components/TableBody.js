@@ -58,9 +58,9 @@ class TableBody extends React.Component{
 
 
 
-       const rows =  sortedRows.map((employee) =>{
+       const rows =  sortedRows.map((employee, index) =>{
            return (
-               <tr>
+               <tr key={index}>
                 <th scope="row">{employee[0]}</th>
                 <td><img src={employee[1]} alt="profile"/></td>
                 <td>{employee[2]}</td>
