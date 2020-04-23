@@ -28,7 +28,9 @@ class TableBody extends React.Component{
         let filteredRows = this.state.Employees;
         let Search = this.props.search;
         if(this.props.search!==""){
-            filteredRows = this.state.Employees.filter(employee => employee.join(" ").includes(Search))
+            filteredRows = this.state.Employees.filter(employee => { 
+                let employeeArrayWithoutImgUrl = [employee[0], ...employee.slice(2)]
+                return employeeArrayWithoutImgUrl.join(" ").includes(Search)})
         }
         const sortedRows = filteredRows.sort((a,b)=>{
             if(this.props.filterType==="asc"){
